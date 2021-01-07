@@ -1,0 +1,36 @@
+<h1>Hi {{currentUser.firstName}}!</h1>
+<button (click)="logOut()">LogOut</button>
+<h3>All registered users:</h3>
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title <input type="text" (keyup)="searchFilter($event)"></th>
+        <th>UserId</th>
+        <th>Body</th>
+      </tr>
+      <tr *ngFor=" let user of filterUser">
+        <td>{{user.id}}</td>
+        <td>{{user.title}}</td>
+        <td>{{user.userId}}</td>
+        <td>{{user.body}}</td>
+
+      </tr>
+</table>
+
